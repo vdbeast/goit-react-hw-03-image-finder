@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from 'prop-types';
 
 const Button = ({onLoadMore}) => {
 
@@ -8,5 +9,9 @@ const Button = ({onLoadMore}) => {
       </div>
     )
 };
+
+Button.propTypes = {
+    onLoadMore: PropTypes.func.isRequired,
+}
 
 export default Button;

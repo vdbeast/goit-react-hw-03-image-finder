@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import PropTypes from 'prop-types';
 import axios from "axios";
 import ImageGalleryItem from "./ImageGalleryItem";
 import Loader from "./Loader";
@@ -49,6 +50,10 @@ class ImageGallery extends Component {
     render() {
         const { images, isLoading } = this.state;
 
+        if (images.length === 0 && !isLoading) {
+            return;
+        }
+
         return (
             <div>
                 <ul className="ImageGallery">
@@ -63,5 +68,9 @@ class ImageGallery extends Component {
     }
     
 }
+
+ImageGallery.propTypes = {
+    query: PropTypes.string.isRequired,
+};
 
 export default ImageGallery;
